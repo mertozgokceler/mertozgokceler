@@ -1,0 +1,104 @@
+/* Sayfanın genel ayarları */
+body {
+    /* Görseldeki gibi mavi bir gökyüzü arkaplanı */
+    background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+    
+    /* Google'dan eklediğimiz fontu kullanıyoruz */
+    font-family: 'JetBrains Mono', monospace;
+    
+    /* Terminali dikey ve yatayda ortalamak için */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    
+    /* Küçük ekranlarda kenarlarda boşluk bırakır */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Terminal penceresinin ana kapsayıcısı */
+.terminal-window {
+    width: 100%;
+    max-width: 750px; /* Terminalin maksimum genişliği */
+    border-radius: 10px; /* Köşeleri yuvarlatma */
+    
+    /* Görüntüdeki gibi belirgin bir gölge efekti */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    
+    /* Köşelerin yuvarlak kalmasını sağlar */
+    overflow: hidden; 
+}
+
+/* Başlık çubuğu (koyu gri alan) */
+.title-bar {
+    background: #333; /* Koyu gri */
+    color: #d0d0d0; /* Soluk metin rengi */
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Soldaki 3 kontrol noktası */
+.controls {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 7px; /* Noktalar arası boşluk */
+}
+
+.controls .dot {
+    width: 12px;
+    height: 12px;
+    background: #2b2b2b; /* Görüntüdeki gibi çok koyu noktalar */
+    border-radius: 50%;
+    border: 1px solid #1e1e1e;
+}
+
+.folder-icon {
+    margin-right: 8px; /* Klasör ile metin arası boşluk */
+}
+
+/* Asıl siyah terminal içeriği alanı */
+.terminal-content {
+    background: #222; /* Terminal siyahı */
+    color: #e0e0e0; /* Terminal yazı rengi (beyaza yakın) */
+    padding: 25px;
+    font-size: 15px;
+    line-height: 1.7; /* Satır yüksekliği */
+}
+
+.terminal-content p {
+    margin: 0 0 8px 0; /* Satırlar arası boşluk */
+    word-break: break-all; /* Uzun metinlerin taşmasını engeller */
+}
+
+/* Görüntüde tüm prompt metni beyaz, bu yüzden tek bir sınıf yeterli */
+.prompt {
+    color: #e0e0e0;
+    margin-right: 8px; /* Prompt ile komut arası boşluk */
+}
+
+/* CSS ile yanıp sönen imleç animasyonu */
+.cursor {
+    display: inline-block;
+    background: #e0e0e0;
+    width: 9px; /* İmleç genişliği */
+    height: 1.1em; /* Satır yüksekliği kadar */
+    margin-left: 5px;
+    animation: blink 1s infinite;
+    vertical-align: middle; /* Metinle hizalama */
+    position: relative;
+    top: -1px;
+}
+
+/* Yanıp sönme animasyonu */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
